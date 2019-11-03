@@ -1,4 +1,6 @@
-# Everest installation instructions
+# Everest installation script from EverestAPI/Everest
+
+## Installation instructions
 
 ```bash
 nix-shell
