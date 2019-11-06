@@ -1,4 +1,5 @@
-{ pkgs ? import <nixpkgs> {}, fetchNuGet ? pkgs.fetchNuGet, buildDotnetPackage ? pkgs.buildDotnetPackage }:
+{ pkgs ? import <nixpkgs> {}, fetchNuGet ? pkgs.fetchNuGet, buildDotnetPackage ? pkgs.buildDotnetPackage,
+  fetchFromGitHub ? pkgs.fetchFromGitHub }:
 
 let
   DotNetZip = fetchNuGet {
@@ -77,13 +78,24 @@ let
     sha256 = "1vckldz58qn2pmnc9kfvvfqayyxiy8yzyini8s7fl2c7fm3nrjyg";
     outputFiles = ["*"];
   };
+  
+  commit = "34ded075e61ce31a6495c8d927edb961860b3a94";
+  versionNumber = "1.1097.0";
+  hash = "sha256:0i1msrc0gfma3gvfqgc1mf4l3r24fbckn62yyzf0bwl1s4b604nf";
+
+  src = fetchFromGitHub {
+    owner = "EverestAPI";
+    repo = "Everest";
+    rev = commit;
+    inherit hash;
+  };
 
 in buildDotnetPackage rec {
   baseName = "Everest";
-  version = pkgs.lib.commitIdFromGitRepo ./.git;
+  version = builtins.substring 0 7 commit;
   name = "${baseName}-dev-${version}";
-
-  src = ./.;
+  
+  inherit src;
 
   xBuildFiles = [ "Celeste.Mod.mm/Celeste.Mod.mm.csproj" "MiniInstaller/MiniInstaller.csproj" ];
   outputFiles = [ "Celeste.Mod.mm/bin/Release/*" "MiniInstaller/bin/Release/*" ];
@@ -95,7 +107,7 @@ in buildDotnetPackage rec {
 
     # See c4263f8 Celeste.Mod.mm/Mod/Everest/Everest.cs line 31
     # This is normally set by Azure
-    substituteInPlace Celeste.Mod.mm/Mod/Everest/Everest.cs --replace '0.0.0-dev' "0.0.0-nix-${builtins.substring 0 7 version}"
+    substituteInPlace Celeste.Mod.mm/Mod/Everest/Everest.cs --replace '0.0.0-dev' "${versionNumber}-nix-${builtins.substring 0 7 version}"
   '';
 
   preBuild = ''
