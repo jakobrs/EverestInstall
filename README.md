@@ -8,3 +8,5 @@ cd (Celeste installation directory)
 miniinstaller .
 exit
 ```
+
+**NB:** License unclear
