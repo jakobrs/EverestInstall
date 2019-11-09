@@ -92,7 +92,7 @@ let
 
 in buildDotnetPackage rec {
   baseName = "Everest";
-  version = builtins.substring 0 7 commit;
+  version = "0.0.0";
   name = "${baseName}-dev-${version}";
   
   inherit src;
@@ -107,7 +107,7 @@ in buildDotnetPackage rec {
 
     # See c4263f8 Celeste.Mod.mm/Mod/Everest/Everest.cs line 31
     # This is normally set by Azure
-    substituteInPlace Celeste.Mod.mm/Mod/Everest/Everest.cs --replace '0.0.0-dev' "${versionNumber}-nix-${builtins.substring 0 7 version}"
+    substituteInPlace Celeste.Mod.mm/Mod/Everest/Everest.cs --replace '0.0.0-dev' "${versionNumber}-nix-${builtins.substring 0 7 commit}"
   '';
 
   preBuild = ''
