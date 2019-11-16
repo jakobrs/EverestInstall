@@ -79,9 +79,9 @@ let
     outputFiles = ["*"];
   };
   
-  commit = "34ded075e61ce31a6495c8d927edb961860b3a94";
-  version = "1.1097.0";
-  hash = "sha256:0i1msrc0gfma3gvfqgc1mf4l3r24fbckn62yyzf0bwl1s4b604nf";
+  commit = "6876095f0cd96fc6ee4c92d769b8f1beb063ef29";
+  version = "1.1129.0";
+  hash = "sha256:16r58lxq5yscfyidv4hgam1601fxjgh0k3dglxb47n7xh9r4pcvz";
 
   src = fetchFromGitHub {
     owner = "EverestAPI";
