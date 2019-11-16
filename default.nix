@@ -80,7 +80,7 @@ let
   };
   
   commit = "34ded075e61ce31a6495c8d927edb961860b3a94";
-  versionNumber = "1.1097.0";
+  version = "1.1097.0";
   hash = "sha256:0i1msrc0gfma3gvfqgc1mf4l3r24fbckn62yyzf0bwl1s4b604nf";
 
   src = fetchFromGitHub {
@@ -92,10 +92,9 @@ let
 
 in buildDotnetPackage rec {
   baseName = "Everest";
-  version = "0.0.0";
-  name = "${baseName}-dev-${version}";
+  name = "${baseName}-stable-${version}";
   
-  inherit src;
+  inherit version src;
 
   xBuildFiles = [ "Celeste.Mod.mm/Celeste.Mod.mm.csproj" "MiniInstaller/MiniInstaller.csproj" ];
   outputFiles = [ "Celeste.Mod.mm/bin/Release/*" "MiniInstaller/bin/Release/*" ];
@@ -107,7 +106,7 @@ in buildDotnetPackage rec {
 
     # See c4263f8 Celeste.Mod.mm/Mod/Everest/Everest.cs line 31
     # This is normally set by Azure
-    substituteInPlace Celeste.Mod.mm/Mod/Everest/Everest.cs --replace '0.0.0-dev' "${versionNumber}-nix-${builtins.substring 0 7 commit}"
+    substituteInPlace Celeste.Mod.mm/Mod/Everest/Everest.cs --replace '0.0.0-dev' "${version}-nix-${builtins.substring 0 7 commit}"
   '';
 
   preBuild = ''
