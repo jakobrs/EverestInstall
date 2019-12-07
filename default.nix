@@ -25,63 +25,63 @@ let
 
   Cecil = fetchNuGet {
     baseName = "Mono.Cecil";
-    version = "0.10.4";
-    sha256 = "16iabjrizkh3g4g9dj40bm2z1kba7752pp5qfszy06x82ahs8l9l";
+    version = "0.11.1";
+    sha256 = "0c7srz0vqm0npli2ixg9j6x934l0drrng8brwanqh96s1wwaikr7";
     outputFiles = ["*"];
   };
 
   MonoMod = fetchNuGet {
     baseName = "MonoMod";
-    version = "19.9.1.6";
-    sha256 = "1z5rz44m62i5f6n87z71fsgdy00xc445s29fca80cjvb8qwmwwz4";
+    version = "19.12.4.1";
+    sha256 = "0fc943fhgak6bazdvjx0b2c3ifx9lxmmfg8c5ii1ykn5j3mvgfqw";
     outputFiles = ["*"];
   };
 
   MonoMod-RD = fetchNuGet {
     baseName = "MonoMod.RuntimeDetour";
-    version = "19.9.1.6";
-    sha256 = "07ggcssl9xyf5g6b80xsd0y4nlzap2cnm9fhv7bywiynvlkh2rd8";
+    version = "19.12.4.1";
+    sha256 = "1fsgp8jaz4j1xn7ic4ky8az3i5ag7kl3f4kj2ckvminpa8x7ngqm";
     outputFiles = ["*"];
   };
 
   MonoMod-RD-HG = fetchNuGet {
     baseName = "MonoMod.RuntimeDetour.HookGen";
-    version = "19.9.1.6";
-    sha256 = "04vf06ascqph6yl0c6i0iqzw3sqhn1m1hwhgn0jm02ps0wjgvvqa";
+    version = "19.12.4.1";
+    sha256 = "001mzsc018955kcp2yz3yzs4hm9i51xixd0c324kwdxba938pa5i";
     outputFiles = ["*"];
   };
 
   MonoMod-Utils = fetchNuGet {
     baseName = "MonoMod.Utils";
-    version = "19.9.1.6";
-    sha256 = "174pfw9d8kwk64rdy75aw6acag619fvd5vin5iwzbrhxniv3pb69";
+    version = "19.12.4.1";
+    sha256 = "0mznyj6184977d5vpw7d2y6pv2v3jczqj5wdxjwx22xcqlifgw1q";
     outputFiles = ["*"];
   };
 
   Json = fetchNuGet {
     baseName = "Newtonsoft.Json";
-    version = "12.0.2";
-    sha256 = "0w2fbji1smd2y7x25qqibf1qrznmv4s6s0jvrbvr6alb7mfyqvh5";
+    version = "12.0.3";
+    sha256 = "17dzl305d835mzign8r15vkmav2hq8l6g7942dfjpnzr17wwl89x";
     outputFiles = ["*"];
   };
 
   NLua = fetchNuGet {
     baseName = "NLua";
-    version = "1.4.24";
-    sha256 = "0gcn2gfbrf8ib4dw1j0dy0pn256x3171gvws225gg9lkm96n3dqn";
+    version = "1.4.25";
+    sha256 = "1n6ll2sh297bm9h1hip5pgm8yannbl5a38vy3yq4r3fg8ifb0r0r";
     outputFiles = ["*"];
   };
 
   YamlDotNet = fetchNuGet {
     baseName = "YamlDotNet";
-    version = "7.0.0";
-    sha256 = "1vckldz58qn2pmnc9kfvvfqayyxiy8yzyini8s7fl2c7fm3nrjyg";
+    version = "8.0.0";
+    sha256 = "09hr1jimmfhcpk97p963y94h2k5p7wzcj4mpwqpdnwzbyrp2flpm";
     outputFiles = ["*"];
   };
   
-  commit = "6876095f0cd96fc6ee4c92d769b8f1beb063ef29";
-  version = "1.1129.0";
-  hash = "sha256:16r58lxq5yscfyidv4hgam1601fxjgh0k3dglxb47n7xh9r4pcvz";
+  commit = "a1d9077b4e3b36e79a6186e56626009ba1abf1d8";
+  version = "1.1161.0";
+  hash = "sha256:0pgj5wf0rl0g73ykjkgfvq6xs2i6mjl523hsmpa803vnhmdycjfk";
 
   src = fetchFromGitHub {
     owner = "EverestAPI";
